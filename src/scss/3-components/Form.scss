@@ -1,0 +1,17 @@
+.form {
+  background: green;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  display: flex;
+
+  input {
+    border: none;
+    flex: 1;
+    height: 3.5rem;
+    padding: 1rem;
+  }
+
+  button {
+    padding: 0 4rem;
+  }
+}

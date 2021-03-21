@@ -1,0 +1,13 @@
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../../assets/background_desktop.png");
+  background-repeat: no-repeat;
+  background-position: top;
+
+  &__container {
+    margin: 0 auto;
+    width: 60%;
+    max-width: 60rem;
+  }
+}
