@@ -1,17 +1,17 @@
 .form {
-  background: green;
-  border-radius: 0.2rem;
-  overflow: hidden;
   display: flex;
+  border-radius: 0.5rem;
+  overflow: hidden;
 
-  input {
+  &__input {
     border: none;
     flex: 1;
-    height: 3.5rem;
-    padding: 1rem;
+    padding: 1.5rem;
   }
 
-  button {
+  &__btn {
+    background: map-get($map: $colors, $key: primary);
+    color: map-get($map: $colors, $key: white);
     padding: 0 4rem;
   }
 }

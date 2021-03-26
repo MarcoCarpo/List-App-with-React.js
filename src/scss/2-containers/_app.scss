@@ -8,6 +8,7 @@
   &__container {
     margin: 0 auto;
     width: 60%;
-    max-width: 60rem;
+    max-width: $break-tablet;
+    padding: 15rem 0;
   }
 }
