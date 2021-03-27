@@ -3,7 +3,6 @@ import { useGlobalContext } from "../context";
 
 const Form = () => {
   const {
-    items,
     isInputValid,
     addItem,
     invalidInput,
@@ -33,10 +32,6 @@ const Form = () => {
       inputRef.current.value = "";
     } else {
       await invalidInput();
-
-      setTimeout(() => {
-        defaultModalText();
-      }, 1500);
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext, useReducer, useEffect } from "react";
 import data from "./data";
 import { reducer } from "./reducer";
 
@@ -8,6 +8,7 @@ const initialState = {
   items: data,
   isInputValid: true,
   modal: "0 out of 5 items",
+  filter: "all",
 };
 
 const AppProvider = ({ children }) => {
@@ -29,6 +30,18 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "COMPLETE_ITEM", payload: id });
   };
 
+  const deleteItems = () => {
+    dispatch({ type: "DELETE_ALL_ITEMS" });
+  };
+
+  const filterItems = (e) => {
+    dispatch({ type: "FILTER_ITEMS", payload: e });
+  };
+
+  useEffect(() => {
+    defaultModalText();
+  }, [state.items]);
+
   return (
     <AppContext.Provider
       value={{
@@ -37,6 +50,8 @@ const AppProvider = ({ children }) => {
         invalidInput,
         defaultModalText,
         completeItem,
+        deleteItems,
+        filterItems,
       }}
     >
       {children}

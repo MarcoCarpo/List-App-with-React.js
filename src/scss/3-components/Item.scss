@@ -13,6 +13,11 @@
     font-size: 1.6rem;
     color: map-get($map: $colors, $key: primary);
     cursor: pointer;
+
+    &--completed {
+      color: map-get($map: $colors, $key: gray);
+      text-decoration: line-through;
+    }
   }
 
   img {

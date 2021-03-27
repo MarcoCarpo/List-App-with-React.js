@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useGlobalContext } from "../context";
 
 import toCheck from "../assets/vectors/to-check.svg";
@@ -13,7 +13,9 @@ const Item = ({ id, name, isCompleted }) => {
     <article className="item">
       <div className="item__desc" onClick={() => completeItem(id)}>
         <img src={isCompleted ? checked : toCheck} alt="" />
-        <p className="item__name">{name}</p>
+        <p className={`item__name ${isCompleted && "item__name--completed"}`}>
+          {name}
+        </p>
       </div>
       <img className="item__edit" src={edit} alt="edit item" />
       <img className="item__delete" src={remove} alt="delete item" />

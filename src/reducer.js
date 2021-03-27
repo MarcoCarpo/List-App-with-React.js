@@ -6,7 +6,6 @@ export const reducer = (state, action) => {
         ...state,
         items: newItems,
         isInputValid: true,
-        modal: "New item added!",
       };
 
     case "INVALID_INPUT":
@@ -18,10 +17,32 @@ export const reducer = (state, action) => {
 
     case "DEFAULT_MODAL_TEXT":
       const total = state.items.length;
+      let completed = 0;
+      state.items.forEach((item) => {
+        if (item.isCompleted) {
+          completed = completed + 1;
+        }
+      });
+
+      if (total === 0) {
+        return {
+          ...state,
+          isInputValid: true,
+          modal: "You don't have any item!",
+        };
+      }
+
+      if (total === completed) {
+        return {
+          ...state,
+          isInputValid: true,
+          modal: "You have all your items!",
+        };
+      }
       return {
         ...state,
         isInputValid: true,
-        modal: `0 out of ${total} items`,
+        modal: `${completed} out of ${total} items`,
       };
 
     case "COMPLETE_ITEM":
@@ -32,7 +53,17 @@ export const reducer = (state, action) => {
         return item;
       });
       return { ...state, items: newItems2 };
-  }
 
-  return state;
+    case "DELETE_ALL_ITEMS":
+      return { ...state, items: [] };
+
+    case "FILTER_ITEMS":
+      const filterType = action.payload.target.attributes.getNamedItem(
+        "data-filter"
+      ).value;
+
+      return { ...state, filter: filterType };
+    default:
+      return state;
+  }
 };
