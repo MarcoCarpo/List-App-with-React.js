@@ -1,6 +1,6 @@
 function Form() {
   return (
-    <form className="form">
+    <form className="form" autoComplete="off">
       <input
         className="form__input"
         type="text"

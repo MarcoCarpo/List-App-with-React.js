@@ -5,6 +5,7 @@
 
   button {
     background: none;
+    color: map-get($map: $colors, $key: dark-gray);
   }
 
   &__links {
