@@ -3,6 +3,15 @@
 
   &__text {
     font-size: 2rem;
-    opacity: 1;
+
+    &--valid {
+      color: map-get($map: $colors, $key: primary-darker);
+      opacity: 1;
+    }
+
+    &--invalid {
+      color: map-get($map: $colors, $key: alert);
+      opacity: 1;
+    }
   }
 }

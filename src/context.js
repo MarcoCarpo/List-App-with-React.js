@@ -7,7 +7,7 @@ const AppContext = React.createContext();
 const initialState = {
   items: data,
   isInputValid: true,
-  modal: "hello",
+  modal: "0 out of 5 items",
 };
 
 const AppProvider = ({ children }) => {
@@ -21,8 +21,24 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "INVALID_INPUT" });
   };
 
+  const defaultModalText = () => {
+    dispatch({ type: "DEFAULT_MODAL_TEXT" });
+  };
+
+  const completeItem = (id) => {
+    dispatch({ type: "COMPLETE_ITEM", payload: id });
+  };
+
   return (
-    <AppContext.Provider value={{ ...state, addItem, invalidInput }}>
+    <AppContext.Provider
+      value={{
+        ...state,
+        addItem,
+        invalidInput,
+        defaultModalText,
+        completeItem,
+      }}
+    >
       {children}
     </AppContext.Provider>
   );

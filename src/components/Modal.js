@@ -1,10 +1,22 @@
+import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 
 const Modal = () => {
-  const { modal } = useGlobalContext();
+  const { modal, isInputValid, defaultModalText } = useGlobalContext();
+
+  useEffect(() => {
+    defaultModalText();
+  }, []);
+
   return (
     <div className="modal">
-      <p className="modal__text">{modal}</p>
+      <p
+        className={`modal__text ${
+          isInputValid ? "modal__text--valid" : "modal__text--invalid"
+        }`}
+      >
+        {modal}
+      </p>
     </div>
   );
 };

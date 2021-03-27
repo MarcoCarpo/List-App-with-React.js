@@ -1,17 +1,18 @@
 import React, { useState } from "react";
+import { useGlobalContext } from "../context";
 
 import toCheck from "../assets/vectors/to-check.svg";
 import checked from "../assets/vectors/checked.svg";
 import edit from "../assets/vectors/edit.svg";
 import remove from "../assets/vectors/delete.svg";
 
-const Item = ({ name, isCompleted }) => {
-  const [isChecked, setIsChecked] = useState(isCompleted);
+const Item = ({ id, name, isCompleted }) => {
+  const { completeItem } = useGlobalContext();
 
   return (
     <article className="item">
-      <div className="item__desc">
-        <img src={isChecked ? checked : toCheck} alt="" />
+      <div className="item__desc" onClick={() => completeItem(id)}>
+        <img src={isCompleted ? checked : toCheck} alt="" />
         <p className="item__name">{name}</p>
       </div>
       <img className="item__edit" src={edit} alt="edit item" />

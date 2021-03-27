@@ -18,7 +18,12 @@
   img {
     padding: 0 1rem;
     cursor: pointer;
+    transform: scale(1);
     transition: 0.3s;
+  }
+
+  img:first-child {
+    padding-left: 0;
   }
 
   &:last-child {
@@ -30,7 +35,7 @@
   }
 
   &__delete:hover {
-    animation: shake 1s ease-in-out infinite;
+    animation: shake 1.5s ease-in-out infinite;
   }
 }
 
