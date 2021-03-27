@@ -1,0 +1,55 @@
+.item {
+  @include flex(space-between, center);
+  padding: 1.5rem 0;
+  border-bottom: 1px solid map-get($map: $colors, $key: gray);
+
+  &__desc {
+    @include flex(space-between, center);
+    flex: 1;
+  }
+
+  &__name {
+    flex: 1;
+    font-size: 1.6rem;
+    color: map-get($map: $colors, $key: primary);
+    cursor: pointer;
+  }
+
+  img {
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &__edit:hover {
+    transform: scale(1.4) rotateZ(20deg);
+  }
+
+  &__delete:hover {
+    animation: shake 1s ease-in-out infinite;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: scale(1.4) translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale(1.4) translateX(-1px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: scale(1.4) translateX(1px);
+  }
+}
