@@ -6,6 +6,11 @@
     border: none;
     flex: 1;
     padding: 1.5rem;
+
+    &--invalid {
+      outline: none;
+      box-shadow: 0px 0px 1px 2px rgb(253, 67, 67);
+    }
   }
 
   &__btn {

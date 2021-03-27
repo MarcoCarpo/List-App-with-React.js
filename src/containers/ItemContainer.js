@@ -6,10 +6,6 @@ import Item from "../components/Item";
 const ItemContainer = () => {
   const { items } = useGlobalContext();
 
-  useEffect(() => {
-    console.log(items);
-  }, []);
-
   return (
     <section className="item-container">
       {items.map((item) => {
