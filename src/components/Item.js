@@ -7,7 +7,7 @@ import edit from "../assets/vectors/edit.svg";
 import remove from "../assets/vectors/delete.svg";
 
 const Item = ({ id, name, isCompleted }) => {
-  const { completeItem } = useGlobalContext();
+  const { completeItem, removeItem } = useGlobalContext();
 
   return (
     <article className="item">
@@ -18,7 +18,12 @@ const Item = ({ id, name, isCompleted }) => {
         </p>
       </div>
       <img className="item__edit" src={edit} alt="edit item" />
-      <img className="item__delete" src={remove} alt="delete item" />
+      <img
+        className="item__delete"
+        src={remove}
+        alt="delete item"
+        onClick={() => removeItem(id)}
+      />
     </article>
   );
 };

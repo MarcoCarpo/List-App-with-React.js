@@ -1,11 +1,12 @@
 .form {
-  display: flex;
   border-radius: 0.5rem;
+  position: relative;
 
   &__input {
+    width: 100%;
     border: none;
-    flex: 1;
     padding: 1.5rem;
+    border-radius: 0.5rem;
 
     &--invalid {
       outline: none;
@@ -14,8 +15,12 @@
   }
 
   &__btn {
+    position: absolute;
+    top: 0;
+    right: 0;
     background: map-get($map: $colors, $key: primary);
     color: map-get($map: $colors, $key: white);
-    padding: 0 4rem;
+    height: 100%;
+    padding: 0 3.5rem;
   }
 }

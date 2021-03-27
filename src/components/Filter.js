@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../context";
 
 const Filter = () => {
-  const { deleteItems, filterItems } = useGlobalContext();
+  const { deleteCompleteItems, filterItems } = useGlobalContext();
   return (
     <div className="filter">
       <ul className="filter__links">
@@ -22,7 +22,7 @@ const Filter = () => {
           </button>
         </li>
       </ul>
-      <button className="filter__clear" onClick={deleteItems}>
+      <button className="filter__clear" onClick={deleteCompleteItems}>
         Clear Completed
       </button>
     </div>

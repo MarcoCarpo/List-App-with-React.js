@@ -54,8 +54,17 @@ export const reducer = (state, action) => {
       });
       return { ...state, items: newItems2 };
 
-    case "DELETE_ALL_ITEMS":
-      return { ...state, items: [] };
+    case "CLEAR_COMPLETED":
+      return {
+        ...state,
+        items: state.items.filter((item) => !item.isCompleted),
+      };
+
+    case "DELETE_ITEM":
+      return {
+        ...state,
+        items: state.items.filter((item) => item.id !== action.payload),
+      };
 
     case "FILTER_ITEMS":
       const filterType = action.payload.target.attributes.getNamedItem(

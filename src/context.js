@@ -30,8 +30,12 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "COMPLETE_ITEM", payload: id });
   };
 
-  const deleteItems = () => {
-    dispatch({ type: "DELETE_ALL_ITEMS" });
+  const deleteCompleteItems = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+  };
+
+  const removeItem = (id) => {
+    dispatch({ type: "DELETE_ITEM", payload: id });
   };
 
   const filterItems = (e) => {
@@ -50,8 +54,9 @@ const AppProvider = ({ children }) => {
         invalidInput,
         defaultModalText,
         completeItem,
-        deleteItems,
+        deleteCompleteItems,
         filterItems,
+        removeItem,
       }}
     >
       {children}
