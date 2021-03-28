@@ -2,15 +2,10 @@ import { useRef, useEffect } from "react";
 import { useGlobalContext } from "../context";
 
 const Form = () => {
-  const {
-    isInputValid,
-    addItem,
-    invalidInput,
-    defaultModalText,
-  } = useGlobalContext();
+  const { isInputValid, addItem, invalidInput, items, ls } = useGlobalContext();
   const inputRef = useRef("");
 
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     // Prevent the page refreshing on submit
     e.preventDefault();
 
@@ -24,21 +19,21 @@ const Form = () => {
       };
 
       // Dispatch new user, modify the state
-      await addItem(newItem);
-
-      setTimeout(() => {
-        defaultModalText();
-      }, 1500);
+      addItem(newItem);
 
       inputRef.current.value = "";
     } else {
-      await invalidInput();
+      invalidInput();
     }
   };
 
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  useEffect(() => {
+    ls.setItem("listApp", JSON.stringify(items));
+  }, [items]);
 
   return (
     <form className="form" autoComplete="off" onSubmit={submitHandler}>

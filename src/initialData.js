@@ -1,37 +1,31 @@
 export default [
   {
+    id: 0,
+    name: "Welcome!",
+    isCompleted: false,
+    isEdited: false,
+  },
+  {
     id: 1,
-    name: "Item 1",
+    name: "1) Add a new Item",
     isCompleted: false,
     isEdited: false,
   },
   {
     id: 2,
-    name: "Item 2",
+    name: "2) Edit or Remove an item",
     isCompleted: false,
     isEdited: false,
   },
   {
     id: 3,
-    name: "Item 3",
+    name: "3) Filter the items",
     isCompleted: false,
     isEdited: false,
   },
   {
     id: 4,
-    name: "Item 4",
-    isCompleted: false,
-    isEdited: false,
-  },
-  {
-    id: 5,
-    name: "Item 5",
-    isCompleted: false,
-    isEdited: false,
-  },
-  {
-    id: 6,
-    name: "Item 6",
+    name: "3) Enjoy 😊",
     isCompleted: false,
     isEdited: false,
   },

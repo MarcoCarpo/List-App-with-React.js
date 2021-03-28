@@ -13,6 +13,7 @@ const Item = ({ id, name, isCompleted, isEdited }) => {
     toggleEditItem,
     editItem,
     closeEditing,
+    ls,
   } = useGlobalContext();
 
   const itemInputRef = useRef("");

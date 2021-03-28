@@ -9,16 +9,17 @@
   }
 
   &__name {
+    flex: 1;
     background: none;
     outline: none;
     border: none;
     font-size: 1.6rem;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     color: map-get($map: $colors, $key: primary);
     cursor: pointer;
     margin: 1rem 0;
     transition: 0.2s;
-    border-radius: 2rem;
+    border-radius: 3rem;
 
     &--completed {
       color: map-get($map: $colors, $key: gray);
@@ -27,7 +28,6 @@
 
     &--editing {
       background: map-get($map: $colors, $key: primary);
-
       color: map-get($map: $colors, $key: white);
     }
   }
@@ -49,6 +49,8 @@
 
   &__edit {
     transition: 0.3s;
+    margin-right: 1rem;
+    margin-left: 2rem;
   }
 
   &__edit > path {

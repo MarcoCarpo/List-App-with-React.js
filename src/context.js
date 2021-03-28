@@ -1,11 +1,17 @@
 import React, { useContext, useReducer, useEffect } from "react";
-import data from "./data";
 import { reducer } from "./reducer";
+import initialData from "./initialData";
+
+window.localStorage.getItem("listApp")
+  ? window.localStorage.getItem("listApp")
+  : window.localStorage.setItem("listApp", JSON.stringify(initialData));
 
 const AppContext = React.createContext();
 
+const ls = window.localStorage;
+
 const initialState = {
-  items: data,
+  items: JSON.parse(ls.getItem("listApp")),
   isInputValid: true,
   modal: "0 out of 5 items",
   filter: "all",
@@ -72,6 +78,7 @@ const AppProvider = ({ children }) => {
         toggleEditItem,
         editItem,
         closeEditing,
+        ls,
       }}
     >
       {children}
