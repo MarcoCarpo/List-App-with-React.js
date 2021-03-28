@@ -42,6 +42,18 @@ const AppProvider = ({ children }) => {
     dispatch({ type: "FILTER_ITEMS", payload: e });
   };
 
+  const toggleEditItem = (id) => {
+    dispatch({ type: "TOGGLE_EDIT_ITEM", payload: id });
+  };
+
+  const editItem = (id, newName) => {
+    dispatch({ type: "EDIT_ITEM", payload: { id, newName } });
+  };
+
+  const closeEditing = (id) => {
+    dispatch({ type: "CLOSE_EDITING", payload: id });
+  };
+
   useEffect(() => {
     defaultModalText();
   }, [state.items]);
@@ -57,6 +69,9 @@ const AppProvider = ({ children }) => {
         deleteCompleteItems,
         filterItems,
         removeItem,
+        toggleEditItem,
+        editItem,
+        closeEditing,
       }}
     >
       {children}

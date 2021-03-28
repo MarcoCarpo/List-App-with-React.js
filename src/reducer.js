@@ -1,3 +1,5 @@
+// RIVEDI NOMI PER NEWITEMS 2 3 4 ...
+
 export const reducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM":
@@ -47,11 +49,12 @@ export const reducer = (state, action) => {
 
     case "COMPLETE_ITEM":
       const newItems2 = state.items.map((item) => {
-        if (item.id === action.payload) {
+        if (item.id === action.payload && !item.isEdited) {
           return { ...item, isCompleted: !item.isCompleted };
         }
         return item;
       });
+
       return { ...state, items: newItems2 };
 
     case "CLEAR_COMPLETED":
@@ -72,6 +75,34 @@ export const reducer = (state, action) => {
       ).value;
 
       return { ...state, filter: filterType };
+
+    case "TOGGLE_EDIT_ITEM":
+      const newItems3 = state.items.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, isEdited: !item.isEdited };
+        }
+        return item;
+      });
+      return { ...state, items: newItems3 };
+
+    case "EDIT_ITEM":
+      const newItems4 = state.items.map((item) => {
+        if (item.id === action.payload.id) {
+          return { ...item, name: action.payload.newName };
+        }
+        return item;
+      });
+      return { ...state, items: newItems4 };
+
+    case "CLOSE_EDITING":
+      const newItems5 = state.items.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, isEdited: false };
+        }
+        return item;
+      });
+      return { ...state, items: newItems5 };
+
     default:
       return state;
   }

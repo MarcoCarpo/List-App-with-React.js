@@ -20,6 +20,7 @@ const Form = () => {
         id: new Date().getTime(),
         name: inputRef.current.value,
         isCompleted: false,
+        isEdited: false,
       };
 
       // Dispatch new user, modify the state

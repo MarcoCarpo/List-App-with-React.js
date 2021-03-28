@@ -4,8 +4,17 @@
   margin: 2rem 0;
 
   button {
+    outline: none;
     background: none;
     color: map-get($map: $colors, $key: dark-gray);
+
+    &:active {
+      color: map-get($map: $colors, $key: primary-darker);
+    }
+  }
+
+  &__active {
+    text-decoration: underline;
   }
 
   &__links {
