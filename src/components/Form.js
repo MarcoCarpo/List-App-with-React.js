@@ -33,7 +33,7 @@ const Form = () => {
 
   useEffect(() => {
     ls.setItem("listApp", JSON.stringify(items));
-  }, [items]);
+  }, [items, ls]);
 
   return (
     <form className="form" autoComplete="off" onSubmit={submitHandler}>

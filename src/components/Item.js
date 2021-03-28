@@ -3,7 +3,7 @@ import { useGlobalContext } from "../context";
 
 import toCheck from "../assets/vectors/to-check.svg";
 import checked from "../assets/vectors/checked.svg";
-import edit from "../assets/vectors/edit.svg";
+
 import remove from "../assets/vectors/delete.svg";
 
 const Item = ({ id, name, isCompleted, isEdited }) => {
@@ -13,7 +13,6 @@ const Item = ({ id, name, isCompleted, isEdited }) => {
     toggleEditItem,
     editItem,
     closeEditing,
-    ls,
   } = useGlobalContext();
 
   const itemInputRef = useRef("");

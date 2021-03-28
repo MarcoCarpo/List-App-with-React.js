@@ -2,11 +2,7 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../context";
 
 const Modal = () => {
-  const { modal, isInputValid, defaultModalText, items } = useGlobalContext();
-
-  useEffect(() => {
-    defaultModalText();
-  }, []);
+  const { modal, isInputValid, items } = useGlobalContext();
 
   useEffect(() => {}, [items]);
 

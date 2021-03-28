@@ -13,7 +13,7 @@ const ls = window.localStorage;
 const initialState = {
   items: JSON.parse(ls.getItem("listApp")),
   isInputValid: true,
-  modal: "0 out of 5 items",
+  modal: "",
   filter: "all",
 };
 

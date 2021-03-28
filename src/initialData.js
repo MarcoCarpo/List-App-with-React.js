@@ -1,4 +1,4 @@
-export default [
+const initialData = [
   {
     id: 0,
     name: "Welcome!",
@@ -30,3 +30,5 @@ export default [
     isEdited: false,
   },
 ];
+
+export default initialData;
