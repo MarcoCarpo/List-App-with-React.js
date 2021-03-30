@@ -1,12 +1,15 @@
 .filter {
   @include flex(space-between, center);
   align-items: center;
-  margin: 2rem 0;
+  margin: 4rem 0;
+  margin-bottom: 0;
+  
 
   button {
     outline: none;
     background: none;
-    color: map-get($map: $colors, $key: dark-gray);
+    @include linear-font-size(1.2rem, 1.8rem, 2.75rem, 76.8rem);
+    color: map-get($map: $colors, $key: primary);
 
     &:active {
       color: map-get($map: $colors, $key: primary-darker);
@@ -23,6 +26,7 @@
   }
 
   &__clear {
+    color: map-get($map: $colors, $key: gray);
     text-decoration: underline;
   }
 }

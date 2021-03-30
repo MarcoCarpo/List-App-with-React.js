@@ -25,7 +25,7 @@ const initialData = [
   },
   {
     id: 4,
-    name: "3) Enjoy 😊",
+    name: "4) Enjoy 😊",
     isCompleted: false,
     isEdited: false,
   },

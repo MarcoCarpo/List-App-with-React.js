@@ -26,7 +26,7 @@ const ItemContainer = () => {
   }, [filter, items]);
 
   return (
-    <section className="item-container">
+    <section className="items-container">
       {filteredList.map((item) => {
         const { id } = item;
         return <Item key={id} {...item} />;

@@ -1,25 +1,23 @@
 .item {
-  @include flex(space-between, center);
-
-  border-bottom: 1px solid map-get($map: $colors, $key: gray);
+  @include flex(center, center);
+  width: 100%;
+  padding: 2rem;
+  border-bottom: 1px solid rgba(0, 128, 0, 0.253);
 
   &__desc {
-    @include flex(flex-start, center);
     flex: 1;
+    @include flex(flex-start, center);
+    gap: 1rem;
+    cursor: pointer;
   }
 
   &__name {
-    flex: 1;
-    background: none;
+    width: 100%;
     outline: none;
     border: none;
     font-size: 1.6rem;
-    padding: 1.5rem 1rem;
+    background: none;
     color: map-get($map: $colors, $key: primary);
-    cursor: pointer;
-    margin: 1rem 0;
-    transition: 0.2s;
-    border-radius: 3rem;
 
     &--completed {
       color: map-get($map: $colors, $key: gray);
@@ -27,18 +25,24 @@
     }
 
     &--editing {
-      background: map-get($map: $colors, $key: primary);
+      background: map-get($map: $colors, $key: primary-lighter);
       color: map-get($map: $colors, $key: white);
+
+      &::selection {
+        color: map-get($map: $colors, $key: primary);
+      }
     }
   }
 
-  img {
-    padding: 0 1rem;
-    cursor: pointer;
-    transform: scale(1);
-    transition: 0.3s;
+  .input-container {
+    width: 40%;
+    background: none;
   }
 
+  img {
+    cursor: pointer;
+    transition: 0.3s;
+  }
   img:first-child {
     padding-left: 0;
   }
@@ -51,26 +55,25 @@
     transition: 0.3s;
     margin-right: 1rem;
     margin-left: 2rem;
-  }
 
-  &__edit > path {
-    fill: map-get($map: $colors, $key: primary-darker);
-  }
-
-  &__edit--is-editing {
-    transform: scale(1.4);
-
-    path {
-      fill: map-get($map: $colors, $key: primary);
+    @media (max-width: 768px) {
+      margin-left: 0;
     }
   }
 
-  &__edit:hover {
+  &__edit:hover,
+  &__edit--is-editing {
     transform: scale(1.4) rotateZ(20deg);
   }
 
   &__delete:hover {
     animation: shake 1.5s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    &__desc {
+      width: 50%;
+    }
   }
 }
 
