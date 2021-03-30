@@ -38,6 +38,10 @@
   .input-container {
     width: 40%;
     background: none;
+
+    @media (max-width: 768px) {
+      width: 70%;
+    }
   }
 
   img {
