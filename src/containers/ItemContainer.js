@@ -25,14 +25,17 @@ const ItemContainer = () => {
     }
   }, [filter, items]);
 
-  return (
-    <section className="items-container">
-      {filteredList.map((item) => {
-        const { id } = item;
-        return <Item key={id} {...item} />;
-      })}
-    </section>
-  );
+  if (filteredList.length > 0) {
+    return (
+      <section className="items-container">
+        {filteredList.map((item) => {
+          const { id } = item;
+          return <Item key={id} {...item} />;
+        })}
+      </section>
+    );
+  }
+  return null;
 };
 
 export default ItemContainer;
